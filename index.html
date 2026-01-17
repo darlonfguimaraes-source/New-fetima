@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário com Script</title>
+    <style>
+        /* Corrigido: background-color precisa de hífen e a cor deve ser definida corretamente */
+        h1 {
+            background-color: red;
+            color: white; /* Adicionei para o texto ficar legível no fundo vermelho */
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>New Fátima</h1>
+   
+    <form id="meuFormulario">
+        <label>Nome do Pai:</label><br>
+        <input type="text" id="nome" name="nome" placeholder="Ex: Darlon Guimarães"><br><br>
+
+        <label>Mês de Referência:</label><br>
+        <input type="text" id="objetivo" name="objetivo" placeholder="Ex: Janeiro"><br><br>
+    </form>
+
+    <button id="meuBotao">Gerar Mensagem</button>
+    
+    <p id="mensagem" style="white-space: pre-wrap; margin-top: 20px; border: 1px solid #ccc; padding: 10px; display: none;"></p>
+
+<script>
+  document.getElementById("meuBotao").addEventListener("click", () => {
+    const nomePai = document.getElementById("nome").value;
+    const mesReferencia = document.getElementById("objetivo").value;
+
+    if (nomePai === "" || mesReferencia === "") {
+        alert("Por favor, preencha o nome e o mês.");
+        return;
+    }
+
+    const campoMensagem = document.getElementById("mensagem");
+    campoMensagem.style.display = "block"; // Mostra o campo quando clica
+    campoMensagem.innerText = `Olá, Sr. ${nomePai}, tudo bem?
+
+Notamos que a mensalidade de ${mesReferencia} ainda não foi identificada em nosso sistema. Sabemos que o dia a dia é corrido e imprevistos acontecem, por isso estamos entrando em contato para ajudar na regularização.
+
+Caso o pagamento já tenha sido feito, pode desconsiderar esta mensagem. Se precisar do boleto ou quiser conversar sobre o pagamento, é só nos chamar por aqui!
+
+Atenciosamente,
+Colégio Fátima`;
+  });
+</script>
+
+</body>
+</html>
+
